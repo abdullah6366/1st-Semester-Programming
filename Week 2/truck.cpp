@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include<iostream>
 using namespace std;
 int main()
@@ -8,4 +9,16 @@ int main()
 	cout << "\t |_______|__|             \t" << endl;
 	cout << "\t  (o)   (o)               \t" << endl;
 
+=======
+#include<iostream>
+using namespace std;
+int main()
+{
+	cout << system("color 07");
+	cout << "\t  _________              \t" << endl;
+	cout << "\t /       |_\\             \t" << endl;
+	cout << "\t |_______|__|             \t" << endl;
+	cout << "\t  (o)   (o)               \t" << endl;
+
+>>>>>>> 6928e432922971c0dd3cd7ac34905dfb9482a3b3
 }
