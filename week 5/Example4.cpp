@@ -1,0 +1,13 @@
+//Total number of digits in a number :
+#include <iostream>
+using namespace std;
+int main()
+{ 
+    int n , count = 0;
+    cout<<"Enter number : ";
+    cin >>n;
+    for ( int i = n ; i > 0 ; i = i/10){
+        count = count + 1 ;
+    }
+    cout<<"Total number of digits : "<<count <<endl;
+}
