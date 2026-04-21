@@ -45,6 +45,7 @@ int main()
         cout << "2. Member Login " << endl;
         cout << "3. Exit " << endl
              << endl;
+        cout << "--------------------------------------------------------" << endl;
         cout << "Choose Option : ";
         string userOption;
         cin >> userOption;
@@ -56,25 +57,31 @@ int main()
             for (int i = 0; i < 3; i++)
             {
                 system("cls");
-                cout << " ----- ADMIN MENU -----" << endl;
-                cout << "Login attempt : " << i + 1 << endl;
-                cout << "Enter username : ";
+                cout << " [--------------- ADMIN MENU ---------------]" << endl<<endl;
+                cout << "Login attempt : " << i + 1 << endl; // User name is manager and password is 123
+                cout << endl;
+                cout << "--> Enter username : ";
                 string username;
                 cin >> username;
-                cout << "Enter password : ";
+                cout << "--> Enter password : ";
                 float password;
                 cin >> password;
                 if (username == "manager" && password == 123)
                 {
-                    cout << "Login Successful !!! " << endl;
+                    cout << endl;
+                    cout << "          --------------------------" << endl;
+                    cout << "              Login Successful !!! " << endl;
+                    cout << "          --------------------------" << endl;
+                    cout << endl;
                     cout << "Press any key to continue ..." << endl;
                     getch();
                     while (true)
                     {
 
                         system("cls");
-                        cout << " ----- ADMIN MENU -----" << endl
+                        cout << " [--------------- MANAGER LOGIN ---------------]" << endl
                              << endl;
+                             cout<<" Options for Manager :"<<endl;
                         cout << "1. Show all Memberships " << endl;
                         cout << "2. Search Membership " << endl;
                         cout << "3. Add Membership " << endl;
@@ -90,11 +97,14 @@ int main()
                         cout << "13. Monthly profit " << endl;
                         cout << "14. Log out " << endl
                              << endl;
+                             cout<<"-------------------------------------------------------"<<endl;
                         cout << "Choose an option : ";
                         string managerOption;
                         cin >> managerOption;
                         if (managerOption == "1")
                         {
+                            cout<<endl;
+                             cout << " [--------------- SHOW ALL MEMBERS ---------------]" << endl;
                             cout << endl;
                             cout << "Name\t\tAge\t\tWeight\t\tHeight\t\tBody" << endl;
                             for (int i = 0; i < index; i++)
@@ -105,16 +115,23 @@ int main()
                                 }
                             }
                             cout << endl;
+                            cout<<"----------------------------------------------------------------------"<<endl;
                             cout << "Press any key to continue ... " << endl;
                             getch();
                         }
                         else if (managerOption == "2")
                         {
+                             cout<<endl;
+                             cout << " [--------------- SEARCH MEMBERS ---------------]" << endl;
+                            cout << endl;
                             bool found = false;
                             cout << endl;
                             cout << "Enter a name : ";
                             string name;
                             cin >> name;
+                            cout<<endl;
+                            cout<<"            RECORD OF "<<name<<endl;
+                            cout<<endl;
                             for (int i = 0; i < index; i++)
                             {
                                 if (namesArr[i] == name)
@@ -129,16 +146,19 @@ int main()
                                 cout << "No record found against the name : " << name << endl;
                             }
                             cout << endl;
+                            cout<<"-------------------------------------------------------"<<endl;
                             cout << "Press any key to continue..." << endl;
                             getch();
                         }
                         else if (managerOption == "3")
                         {
                             system("cls");
+                            cout << " [--------------- ADD MEMBERSHIP ---------------]" << endl<<endl;
                             cout << "Please choose an option for Fee Payment " << endl;
                             cout << " 1. Paid " << endl;
                             cout << " 2. Not paid " << endl;
                             int paymentOption;
+                            cout<<endl;
                             cout << "Payment option : ";
                             cin >> paymentOption;
 
@@ -212,6 +232,7 @@ int main()
                                 cout << "Invalid payment option..." << endl;
                             }
                             cout << endl;
+                             cout<<"-------------------------------------------------------"<<endl;
                             cout << "Please press any character to continue ... " << endl;
                             getch();
                         }
@@ -219,8 +240,7 @@ int main()
                         {
                             // History of last 5 members added
                             cout << endl;
-                            cout << "------- History of Last 5 Members Added -------" << endl;
-                            cout << endl;
+                            cout << " [--------------- History of last 5 Memberships ---------------]" << endl<<endl;
                             if (historyIndex == 0)
                             {
                                 cout << "No history available yet." << endl;
@@ -237,11 +257,13 @@ int main()
                                 }
                             }
                             cout << endl;
+                            cout<<"-------------------------------------------------------"<<endl;
                             cout << "Press any key to continue ... " << endl;
                             getch();
                         }
                         else if (managerOption == "5")
                         {
+                            cout << " [--------------- Delete Membership ---------------]" << endl<<endl;
                             bool found = false;
                             cout << "Enter the members's name that you want to delete the membership : ";
                             string memberName;
@@ -271,14 +293,14 @@ int main()
                                 cout << "Record not found against the name " << memberName << endl;
                             }
                             cout << endl;
+                            cout<<"-------------------------------------------------------"<<endl;
                             cout << "Press any key to continue ... " << endl;
                             getch();
                         }
                         else if (managerOption == "6")
                         {
                             cout << endl;
-                            cout << "---- Sorting on the basis of age ----" << endl
-                                 << endl;
+                           cout << " [--------------- Sorting on the Basis of Age ---------------]" << endl<<endl;
                             for (int i = 0; i < index; i++)
                             {
                                 for (int j = i + 1; j < index; j++)
@@ -316,6 +338,7 @@ int main()
                                 }
                             }
                             cout << endl;
+                             cout<<"-------------------------------------------------------"<<endl;
                             cout << "Press any key to continue ..." << endl;
                             getch();
                         }
@@ -331,6 +354,7 @@ int main()
                             {
                                 cout << supplementsArr[i] << "\t\t" << amount_supplementsArr[i] << endl;
                             }
+                            cout<<"-------------------------------------------------------"<<endl;
                             cout << "Press any key to continue ... " << endl;
                             getch();
                         }
@@ -364,6 +388,7 @@ int main()
                                 cout << "No supplement avalible for such name." << endl;
                             }
                             cout << endl;
+                            cout<<"-------------------------------------------------------"<<endl;
                             cout << "Press any key to continue ... " << endl;
                             getch();
                         }
@@ -397,6 +422,7 @@ int main()
                                 cout << "Invalid option entered " << endl;
                             }
                             cout << endl;
+                            cout<<"-------------------------------------------------------"<<endl;
                             cout << "Press any key to continue ... " << endl;
                             getch();
                         }
@@ -411,6 +437,7 @@ int main()
                                 cout << "Monthly fee for " << genderArr[i] << " is " << feeArr[i] << " Ruppees. " << endl;
                             }
                             cout << endl;
+                            cout<<"-------------------------------------------------------"<<endl;
                             cout << "Press any key to continue ... " << endl;
                             getch();
                         }
@@ -449,6 +476,7 @@ int main()
                                 cout << "Invalid Input. Try again. Word is case sensitive." << endl;
                             }
                             cout << endl;
+                            cout<<"-------------------------------------------------------"<<endl;
                             cout << "Press any character to continue..." << endl;
                             getch();
                         }
@@ -464,10 +492,11 @@ int main()
                             cout << endl;
                             float monthly_income = (number_of_males * feeArr[0]) + (number_of_females * feeArr[1]);
                             cout << endl;
-                            cout << "---------- Total Monthly Earning --------------" << endl
+                            cout << "[------------- Total Monthly Earning --------------]" << endl
                                  << endl;
                             cout << "The total monthly income from the gym is " << monthly_income << " Rupees." << endl;
                             cout << endl;
+                            cout<<"-------------------------------------------------------"<<endl;
                             cout << "Press any key to continue..." << endl;
                             getch();
                         }
@@ -483,7 +512,7 @@ int main()
                             cout << endl;
                             float monthly_income = (number_of_males * feeArr[0]) + (number_of_females * feeArr[1]);
                             cout << endl;
-                            cout << "---------- Total Monthly Earning --------------" << endl
+                            cout << "[------------- Total Monthly Earning --------------]" << endl
                                  << endl;
                             cout << "The total monthly income from the gym is " << monthly_income << " Rupees." << endl;
                             cout << endl;
@@ -500,25 +529,26 @@ int main()
                             if (calculation == 0)
                             {
                                 cout << endl;
-                                cout << "--------- Profit ---------" << endl
+                                cout << "[--------- Profit ---------]" << endl
                                      << endl;
                                 cout << "Profit of this month is 0 Rupees." << endl;
                             }
                             else if (calculation > 0)
                             {
                                 cout << endl;
-                                cout << "--------- Profit ---------" << endl
+                                cout << "[--------- Profit ---------]" << endl
                                      << endl;
                                 cout << "The profit of this month is " << calculation << " Rupees. " << endl;
                             }
                             else if (calculation < 0)
                             {
                                 cout << endl;
-                                cout << "--------- Loss ---------" << endl
+                                cout << "p--------- Loss ---------]" << endl
                                      << endl;
                                 cout << "You have a loss this month. " << calculation << " Rupees from your pocket. " << endl;
                             }
                             cout << endl;
+                            cout<<"-------------------------------------------------------"<<endl;
                             cout << "Press any key to continue ... " << endl;
                             getch();
                         }
@@ -526,6 +556,7 @@ int main()
                         {
                             cout << endl;
                             cout << "Logging you out. " << endl;
+                            cout<<"-------------------------------------------------------"<<endl;
                             cout << "Please press any key to continue ..." << endl;
                             getch();
                             break;
@@ -540,6 +571,7 @@ int main()
                 else
                 {
                     cout << "Your username or password is wrong. Please try again. " << endl;
+                    cout<<"-------------------------------------------------------"<<endl;
                     cout << "Press any key to continue ..." << endl;
                     getch();
                 }
@@ -550,7 +582,7 @@ int main()
             while (true)
             {
                 system("cls");
-                cout << "------Welcome to Members Menu-------- " << endl;
+                cout << "[-----------------Welcome to Members Menu------------------] " << endl;
                 cout << endl;
                 cout << "1. Online Registration " << endl;
                 cout << "2. Check Membership record " << endl;
@@ -570,7 +602,7 @@ int main()
                 cout << endl;
                 if (memberOption == "1")
                 {
-                    cout << "-------- Online Membership Purchase ----------" << endl
+                    cout << "[------------- Online Membership Purchase ---------------]" << endl
                          << endl;
                     cout << "For online fee payment : Account number XYZ " << endl;
                     cout << "Please choose an option for Fee Payment " << endl;
@@ -583,7 +615,7 @@ int main()
                     if (paymentOption == 1)
                     {
                         cout << endl;
-                        cout << "-----------Adding Membership----------- " << endl;
+                        cout << "[------------------Adding Membership-----------------] " << endl;
                         cout << endl;
                         cout << "Enter your name : ";
                         string name;
@@ -649,6 +681,7 @@ int main()
                         cout << "Invalid payment option..." << endl;
                     }
                     cout << endl;
+                    cout<<"-------------------------------------------------------"<<endl;
                     cout << "Please press any key to continue ... " << endl;
                     getch();
                 }
@@ -659,7 +692,7 @@ int main()
                     string name;
                     cin >> name;
                     cout << endl;
-                    cout << "-------Membership Record-----" << endl
+                    cout << "[-----------------Membership Record------------------]" << endl
                          << endl;
                     for (int i = 0; i < index; i++)
                     {
@@ -676,6 +709,7 @@ int main()
                         cout << "No record found against the name : " << name << endl;
                     }
                     cout << endl;
+                    cout<<"-------------------------------------------------------"<<endl;
                     cout << "Press any key to continue..." << endl;
                     getch();
                 }
@@ -690,7 +724,7 @@ int main()
                     cout << endl;
                     cout << "Timing for gym opening and closing for you is given below." << endl;
                     cout << endl;
-                    cout << "------------Time Table---------------" << endl;
+                    cout << "[---------------------Time Table---------------------]" << endl;
                     cout << endl;
 
                     if (genderOption == 1)
@@ -706,6 +740,7 @@ int main()
                         cout << "Invalid option entered " << endl;
                     }
                     cout << endl;
+                    cout<<"-------------------------------------------------------"<<endl;
                     cout << "Press any key to continue ... " << endl;
                     getch();
                 }
@@ -713,31 +748,33 @@ int main()
                 {
                     cout << "Fee structure of GYM is given below." << endl;
                     cout << endl;
-                    cout << "-----------Fee Structure----------" << endl
+                    cout << "[----------------Fee Structure------------------]" << endl
                          << endl;
                     for (int i = 0; i < 2; i++)
                     {
                         cout << "Monthly fee for " << genderArr[i] << " is " << feeArr[i] << " Ruppees. " << endl;
                     }
                     cout << endl;
+                    cout<<"-------------------------------------------------------"<<endl;
                     cout << "Press any key to continue ... " << endl;
                     getch();
                 }
                 else if (memberOption == "5")
                 {
-                    cout << "----------Current Weekly Exercise Plan--------- " << endl
+                    cout << "[---------------Current Weekly Exercise Plan---------------] " << endl
                          << endl;
                     for (int i = 0; i < 7; i++)
                     {
                         cout << "Day \t\t" << daysArr[i] << "\t\t\t" << exerciseArr[i] << endl;
                     }
                     cout << endl;
+                    cout<<"-------------------------------------------------------"<<endl;
                     cout << "Press any key to continue ... " << endl;
                     getch();
                 }
                 else if (memberOption == "6")
                 {
-                    cout << "-------Current Weekly Exercise Plan------ " << endl
+                    cout << "[-------------------Current Weekly Exercise Plan-------------------] " << endl
                          << endl;
                     for (int i = 0; i < 7; i++)
                     {
@@ -752,19 +789,20 @@ int main()
                         exerciseArr[i] = new_exercise;
                     }
                     cout << endl;
-                    cout << "-------New Weekly Exercise Plan------ " << endl;
+                    cout << "[----------------------New Weekly Exercise Plan-----------------------] " << endl;
                     cout << endl;
                     for (int i = 0; i < 7; i++)
                     {
                         cout << "Day \t\t" << daysArr[i] << "\t\t\t" << exerciseArr[i] << endl;
                     }
                     cout << endl;
+                    cout<<"-------------------------------------------------------"<<endl;
                     cout << "Press any key to continue ... " << endl;
                     getch();
                 }
                 else if (memberOption == "7")
                 {
-                    cout << "------------- BMI Calculator -----------" << endl;
+                    cout << "[-------------------------- BMI Calculator ------------------------]" << endl;
                     cout << endl;
                     cout << "Enter your weight in kgs : ";
                     float weight;
@@ -775,7 +813,7 @@ int main()
                     float BMI;
                     BMI = ((weight * 10000) / (height * height));
                     cout << endl;
-                    cout << "--------BMI--------" << endl
+                    cout << "[--------BMI--------]" << endl
                          << endl;
                     cout << "Your body Mass Index is : " << BMI << "." << endl;
                     if (BMI < 18)
@@ -791,6 +829,7 @@ int main()
                         cout << "You are over weight. Need to lose some weight. " << endl;
                     }
                     cout << endl;
+                    cout<<"-------------------------------------------------------"<<endl;
                     cout << "Press any key to continue ... " << endl;
                     getch();
                 }
@@ -803,7 +842,7 @@ int main()
                     float desired_weight;
                     cin >> desired_weight;
                     cout << endl;
-                    cout << "---------- Diet and Nutritions ---------" << endl;
+                    cout << "[------------------ Diet and Nutritions -----------------]" << endl;
                     if (weight > desired_weight)
                     {
                         cout << endl;
@@ -832,6 +871,7 @@ int main()
                         cout << "Your weight is good, Keep your previous Diet!!! " << endl;
                     }
                     cout << endl;
+                    cout<<"-------------------------------------------------------"<<endl;
                     cout << "Press any key to continue ... " << endl;
                     getch();
                 }
@@ -844,7 +884,7 @@ int main()
                     string desired_body_type;
                     cin >> desired_body_type;
                     cout << endl;
-                    cout << "-------- Workout Plan ---------" << endl;
+                    cout << "[----------------- Workout Plan --------------------]" << endl;
                     cout << endl;
                     if (body_type == "Lean" && desired_body_type == "Bulk")
                     {
@@ -875,13 +915,14 @@ int main()
                         cout << "Your have entered invalid options. Try again and remember the word is case sensitive. " << endl;
                     }
                     cout << endl;
+                    cout<<"-------------------------------------------------------"<<endl;
                     cout << "Press any key to continue ... " << endl;
                     getch();
                 }
                 else if (memberOption == "10")
                 {
                     cout << endl;
-                    cout << "--------- Rules to Follow -----------" << endl;
+                    cout << "[--------------------- Rules to Follow ----------------------]" << endl;
                     cout << endl;
                     cout << "1. Smoking is not allowed." << endl;
                     cout << "2. Put the equipment back from where you get it. " << endl;
@@ -900,6 +941,7 @@ int main()
                 else if (memberOption == "11")
                 {
                     cout << "Exiting the page. " << endl;
+                    cout<<"-------------------------------------------------------"<<endl;
                     cout << "Press any key to continue ..." << endl;
                     getch();
                     break;
@@ -907,6 +949,7 @@ int main()
                 else
                 {
                     cout << "User entered invalid option, Try Again. " << endl;
+                    cout<<"-------------------------------------------------------"<<endl;
                     cout << "Press any key to continue..." << endl;
                     getch();
                 }
@@ -915,7 +958,9 @@ int main()
         else if (userOption == "3")
         {
             cout << endl;
-            cout << "Thanks for using this software !!! " << endl;
+            cout<<"-------------------------------------------------------"<<endl;
+            cout << "       Thanks for using this software !!! " << endl;
+            cout<<"-------------------------------------------------------"<<endl;
             break;
         }
         else
@@ -923,6 +968,7 @@ int main()
             cout << "User entered wrong option, Try again. " << endl;
             cout << "Options are 1 , 2 and 3. " << endl;
             cout << endl;
+            cout<<"-------------------------------------------------------"<<endl;
             cout << "Press any key to continue " << endl;
             getch();
         }
