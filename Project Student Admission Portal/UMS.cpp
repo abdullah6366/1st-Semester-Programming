@@ -6,7 +6,7 @@ int main()
 {
 
     int Total_Students = 1000; // Total Size
-    int index = 2;
+    int index = 7;
 
     // Data Structure
     string namesArr[Total_Students] = {"Ali", "Asad", "Ahmed", "Sara", "Usman", "Ayesha", "Bilal"};
@@ -34,11 +34,11 @@ int main()
         cout << "2. Student " << endl;
         cout << "3. Exit " << endl;
         cout << "Choose Option : ";
-        int userOption;
+        string userOption;
         cin >> userOption;
 
         cout << "You choosed " << userOption << endl;
-        if (userOption == 1)
+        if (userOption == "1")
         {
             // Write admin code here
             for (int i = 0; i < 3; i++)
@@ -67,9 +67,9 @@ int main()
                         cout << "5. Delete " << endl;
                         cout << "6. Log out " << endl;
                         cout << "Choose an option : ";
-                        int adminOption;
+                        string adminOption;
                         cin >> adminOption;
-                        if (adminOption == 1)
+                        if (adminOption == "1")
                         {
                             cout << "Name\t\tAge\t\tMatric\t\tInter\t\tEcat\t\tPref1\t\tPref2\t\tPref3" << endl;
                             for (int i = 0; i < index; i++)
@@ -80,7 +80,7 @@ int main()
                                 }
                             }
                         }
-                        else if (adminOption == 2)
+                        else if (adminOption == "2")
                         {
                             // Search Students
                             bool found = false;
@@ -101,7 +101,7 @@ int main()
                                 cout << "No record found against the name : " << name << endl;
                             }
                         }
-                        else if (adminOption == 3)
+                        else if (adminOption == "3")
                         {
                             // Update student record
                             bool found = false;
@@ -161,13 +161,67 @@ int main()
                                 cout << "No record found against the name : " << name << endl;
                             }
                         }
-                        else if (adminOption == 4)
+                        else if (adminOption == "4")
                         {
                             // Generate merit list
                             for (int i = 0; i < index; i++)
                             {
                                 float aggri = matricArr[i] / 1100 * 100 * 0.3 + interArr[i] / 1200 * 100 * 0.4 + ecatArr[i] / 400 * 100 * 0.3;
                                 aggriArr[i] = aggri;
+                            }
+                            // sorting the data on the basis of aggregate
+                            for (int i = 0; i < index; i++)
+                            {
+                                for (int j = i + 1; j < index; j++)
+                                {
+                                    if (aggriArr[i] < aggriArr[j])
+                                    {
+                                        // swapping of name
+                                        string temp = namesArr[i];
+                                        namesArr[i] = namesArr[j];
+                                        namesArr[j] = temp;
+
+                                        // swapping of age
+                                        int tempAge = ageArr[i];
+                                        ageArr[i] = ageArr[j];
+                                        ageArr[j] = tempAge;
+
+                                        // swapping of matric
+                                        float tempMatric = matricArr[i];
+                                        matricArr[i] = matricArr[j];
+                                        matricArr[j] = tempMatric;
+
+                                        // swapping of inter
+                                        float tempInter = interArr[i];
+                                        interArr[i] = interArr[j];
+                                        interArr[j] = tempInter;
+
+                                        // swapping of ecat
+                                        float tempEcat = ecatArr[i];
+                                        ecatArr[i] = ecatArr[j];
+                                        ecatArr[j] = tempEcat;
+
+                                        // swapping of pref1
+                                        string tempPref1 = pref1Arr[i];
+                                        pref1Arr[i] = pref1Arr[j];
+                                        pref1Arr[j] = tempPref1;
+
+                                        // swapping of pref2
+                                        string tempPref2 = pref2Arr[i];
+                                        pref2Arr[i] = pref2Arr[j];
+                                        pref2Arr[j] = tempPref2;
+                                        // swapping of pref3
+
+                                        string tempPref3 = pref3Arr[i];
+                                        pref3Arr[i] = pref3Arr[j];
+                                        pref3Arr[j] = tempPref3;
+                                        // swapping of aggri
+
+                                        float tempAggri = aggriArr[i];
+                                        aggriArr[i] = aggriArr[j];
+                                        aggriArr[j] = tempAggri;
+                                    }
+                                }
                             }
                             // code to display all data with aggregate
                             cout << "Name\t\tAge\t\tAggregate" << endl;
@@ -178,10 +232,75 @@ int main()
                                     cout << namesArr[i] << "\t\t" << ageArr[i] << "\t\t" << aggriArr[i] << endl;
                                 }
                             }
-                            // code to display sorted data
+                            // admit students into disciplines
+                            int csSeats = 2;
+                            int dsSeats = 2;
+                            int aiSeats = 3;
+
+                            cout << endl;
+                            cout << "------Admission Results------" << endl;
+
+                            for (int i = 0; i < index; i++)
+                            {
+                                if (namesArr[i] != "")
+                                {
+                                    // check first preference first
+                                    if (pref1Arr[i] == "CS" && csSeats > 0)
+                                    {
+                                        cout << namesArr[i] << " admitted into CS" << endl;
+                                        csSeats--;
+                                    }
+                                    else if (pref1Arr[i] == "DS" && dsSeats > 0)
+                                    {
+                                        cout << namesArr[i] << " admitted into DS" << endl;
+                                        dsSeats--;
+                                    }
+                                    else if (pref1Arr[i] == "AI" && aiSeats > 0)
+                                    {
+                                        cout << namesArr[i] << " admitted into AI" << endl;
+                                        aiSeats--;
+                                    }
+                                    // first preference full, check second preference
+                                    else if (pref2Arr[i] == "CS" && csSeats > 0)
+                                    {
+                                        cout << namesArr[i] << " admitted into CS (via 2nd preference)" << endl;
+                                        csSeats--;
+                                    }
+                                    else if (pref2Arr[i] == "DS" && dsSeats > 0)
+                                    {
+                                        cout << namesArr[i] << " admitted into DS (via 2nd preference)" << endl;
+                                        dsSeats--;
+                                    }
+                                    else if (pref2Arr[i] == "AI" && aiSeats > 0)
+                                    {
+                                        cout << namesArr[i] << " admitted into AI (via 2nd preference)" << endl;
+                                        aiSeats--;
+                                    }
+                                    // second preference full, check third preference
+                                    else if (pref3Arr[i] == "CS" && csSeats > 0)
+                                    {
+                                        cout << namesArr[i] << " admitted into CS (via 3rd preference)" << endl;
+                                        csSeats--;
+                                    }
+                                    else if (pref3Arr[i] == "DS" && dsSeats > 0)
+                                    {
+                                        cout << namesArr[i] << " admitted into DS (via 3rd preference)" << endl;
+                                        dsSeats--;
+                                    }
+                                    else if (pref3Arr[i] == "AI" && aiSeats > 0)
+                                    {
+                                        cout << namesArr[i] << " admitted into AI (via 3rd preference)" << endl;
+                                        aiSeats--;
+                                    }
+                                    else
+                                    {
+                                        cout << namesArr[i] << " could not be admitted, all seats are full" << endl;
+                                    }
+                                }
+                            }
                         }
 
-                        else if (adminOption == 5)
+                        else if (adminOption == "5")
                         {
                             // Delete
                             bool found = false;
@@ -209,14 +328,17 @@ int main()
                                 cout << "Record not found against the name " << name << endl;
                             }
                         }
-                        else if (adminOption == 6)
+                        else if (adminOption == "6")
                         {
                             // log out
+                            cout << "Logging you out " << endl;
+                            cout << "Please press any key to continue ..." << endl;
                             break;
                         }
                         else
                         {
                             // invalid Option
+                            cout << "User entered invalid option " << endl;
                         }
                         cout << "Press any key to continue ..." << endl;
                         getch();
@@ -232,7 +354,7 @@ int main()
                 }
             }
         }
-        else if (userOption == 2)
+        else if (userOption == "2")
         {
             // Write user code here
             system("cls");
@@ -279,8 +401,10 @@ int main()
             cout << "Please press any character to continue ... " << endl;
             getch();
         }
-        else if (userOption == 3)
+        else if (userOption == "3")
         {
+            // Exit
+            cout << "Thanks for using this software !!! " << endl;
             break;
         }
         else
